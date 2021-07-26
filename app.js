@@ -6,6 +6,7 @@ const PunkAPIWrapper = require('punkapi-javascript-wrapper');
 
 const app = express();
 const punkAPI = new PunkAPIWrapper();
+const beersRouter= require("./routes/beers");
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -13,6 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Register the location for handlebars partials here:
+// app.use("/", beersRouter);
 
 // ...
 
@@ -23,3 +25,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3400, () => console.log('🏃‍ on port 3400'));
+
+
+module.exports = app; 
